@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using System.IO;
 using System.Xml.Serialization;
+
+using UnityEditor;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -32,6 +35,12 @@ public class NewBehaviourScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             ClearSave();
+        }
+        //open save file
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            EditorUtility.RevealInFinder(Application.persistentDataPath);
+            EditorUtility.RevealInFinder(Application.dataPath);
         }
     }
 
