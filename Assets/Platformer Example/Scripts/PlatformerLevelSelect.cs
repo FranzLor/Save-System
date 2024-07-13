@@ -48,6 +48,19 @@ public class PlatformerLevelSelect : MonoBehaviour
         {
             cover.color = new Color(cover.color.r, cover.color.g, cover.color.b, Mathf.MoveTowards(cover.color.a, 1f, fadeSpeed * Time.deltaTime));
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ClearSave();
+        }
+    }
+
+    public void ClearSave()
+    {
+        PlayerPrefs.DeleteAll();
+
+        //reload scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void StartFadeIn()
