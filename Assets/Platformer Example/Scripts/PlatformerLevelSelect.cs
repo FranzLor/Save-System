@@ -28,6 +28,12 @@ public class PlatformerLevelSelect : MonoBehaviour
     {
         StartFadeIn();
 
+        //save and update coin count
+        if (PlayerPrefs.HasKey("coinCount"))
+        {
+            coinCount = PlayerPrefs.GetInt("coinCount");
+        }
+
         coinText.text = "Coins: " + coinCount;
     }
 

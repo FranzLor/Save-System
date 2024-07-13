@@ -17,7 +17,13 @@ public class PlatformerLevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //save and update coin count
+        if (PlayerPrefs.HasKey("coinCount"))
+        {  
+            coinCount = PlayerPrefs.GetInt("coinCount");
+            //update coin UI
+            PlatformerUIController.instance.UpdateCoinText(coinCount);
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +47,9 @@ public class PlatformerLevelManager : MonoBehaviour
     IEnumerator ExitLevelCo()
     {
         FindObjectOfType<PlatformerPlayer>().canMove = false;
+        
+        //save coin count after ext
+        PlayerPrefs.SetInt("coinCount", coinCount);
 
         yield return new WaitForSeconds(1f);
 
