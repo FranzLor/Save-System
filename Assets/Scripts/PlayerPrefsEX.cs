@@ -32,9 +32,23 @@ public class PlayerPrefsEX : MonoBehaviour
         {
             Debug.Log("Load");
 
-            aInt = PlayerPrefs.GetInt("testInt");
-            aFloat = PlayerPrefs.GetFloat("testFloat");
-            aString = PlayerPrefs.GetString("testString");
+            if (PlayerPrefs.HasKey("testInt"))
+            {
+                aInt = PlayerPrefs.GetInt("testInt");
+                aFloat = PlayerPrefs.GetFloat("testFloat");
+                aString = PlayerPrefs.GetString("testString");
+            } else
+            {
+                Debug.Log("No PlayerPrefs Data Found");
+            }
+        }
+
+        //clear
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            PlayerPrefs.DeleteAll();
+
+            Debug.Log("Deleted PlayerPrefs Data");
         }
     }
 }
