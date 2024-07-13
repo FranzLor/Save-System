@@ -60,14 +60,21 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Load()
     {
-        Debug.Log("Loading Data");
-
         string dataPath = Application.persistentDataPath;
 
-        var serializer = new XmlSerializer(typeof(string));
-        var stream = new FileStream(dataPath + "/Save.xml", FileMode.Open);
-        testingString = serializer.Deserialize(stream) as string;
-        stream.Close();
+        //error check ensure file exists
+        if (File.Exists(dataPath + "/Save.xml"))
+        {
+            Debug.Log("Loading Data");
+
+            var serializer = new XmlSerializer(typeof(string));
+            var stream = new FileStream(dataPath + "/Save.xml", FileMode.Open);
+            testingString = serializer.Deserialize(stream) as string;
+            stream.Close();
+        } else
+        {
+            Debug.LogWarning("No Save File Found");
+        }
     }
 
     void ClearSave()
