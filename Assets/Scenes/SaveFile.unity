@@ -245,6 +245,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testingString: 
   testingList: []
+  dataToSave:
+    text: erik
+    intNum: 1
+    floatNum: 6.29
+    location:
+    - {x: 2, y: 4, z: 45}
+    typeOfInfo: 2
+    subSave:
+      text: Hello World
+      isTrue: 1
 --- !u!4 &1918661388
 Transform:
   m_ObjectHideFlags: 0

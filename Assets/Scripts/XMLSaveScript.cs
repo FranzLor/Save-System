@@ -14,6 +14,8 @@ public class NewBehaviourScript : MonoBehaviour
 
     public List<float> testingList;
 
+    public SaveData dataToSave;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,9 +70,9 @@ public class NewBehaviourScript : MonoBehaviour
         string dataPath = Application.persistentDataPath;
 
         //create new XML serializer
-        var serializer = new XmlSerializer(typeof(List<float>));
+        var serializer = new XmlSerializer(typeof(SaveData));
         var stream = new FileStream(dataPath + "/Save.xml", FileMode.Create);
-        serializer.Serialize(stream, testingList);
+        serializer.Serialize(stream, dataToSave);
 
         stream.Close();
         //--------------------------------
@@ -105,9 +107,9 @@ public class NewBehaviourScript : MonoBehaviour
         {
             Debug.Log("Loading Data");
 
-            var serializer = new XmlSerializer(typeof(List<float>));
+            var serializer = new XmlSerializer(typeof(SaveData));
             var stream = new FileStream(dataPath + "/Save.xml", FileMode.Open);
-            testingList = serializer.Deserialize(stream) as List<float>;
+            dataToSave = serializer.Deserialize(stream) as SaveData;
             stream.Close();
         }
         else
