@@ -52,7 +52,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         //create new XML serializer
         var serializer = new XmlSerializer(typeof(string));
-        var stream = new FileStream(dataPath + "/save.xml", FileMode.Create);
+        var stream = new FileStream(dataPath + "/Save.xml", FileMode.Create);
         serializer.Serialize(stream, testingString);
 
         stream.Close();
@@ -60,7 +60,14 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Load()
     {
-        Debug.Log("Loading...");
+        Debug.Log("Loading Data");
+
+        string dataPath = Application.persistentDataPath;
+
+        var serializer = new XmlSerializer(typeof(string));
+        var stream = new FileStream(dataPath + "/Save.xml", FileMode.Open);
+        testingString = serializer.Deserialize(stream) as string;
+        stream.Close();
     }
 
     void ClearSave()
