@@ -51,6 +51,8 @@ public class PlatformerLevelManager : MonoBehaviour
         //save coin count after ext
         PlayerPrefs.SetInt("coinCount", coinCount);
 
+        PlayerPrefs.SetString(SceneManager.GetActiveScene().name + "_complete", "true");
+
         yield return new WaitForSeconds(1f);
 
         if(sceneToload != "")

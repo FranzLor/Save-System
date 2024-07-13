@@ -10,8 +10,22 @@ public class PlatformerLevelSelectButton : MonoBehaviour
     public bool isLocked;
     public GameObject lockedDisplay;
 
+    public string LevelToCheck;
+
     private void Start()
     {
+        //check if level is locked
+        if (LevelToCheck != "") 
+        {
+           if (PlayerPrefs.HasKey(LevelToCheck + "_complete"))
+           {
+                if (PlayerPrefs.GetString(LevelToCheck + "_complete") == "true")
+                {
+                    isLocked = false;
+                }
+           }
+        }
+
         lockedDisplay.SetActive(isLocked);
     }
 

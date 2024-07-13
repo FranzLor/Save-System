@@ -440,6 +440,7 @@ MonoBehaviour:
   sceneToLoad: Plat_Level_3
   isLocked: 1
   lockedDisplay: {fileID: 680182096}
+  LevelToCheck: Plat_Level_2
 --- !u!114 &394519921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,6 +757,7 @@ MonoBehaviour:
   sceneToLoad: Plat_Level_2
   isLocked: 1
   lockedDisplay: {fileID: 1281554628}
+  LevelToCheck: Plat_Level_1
 --- !u!114 &843713973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1548,6 +1550,7 @@ MonoBehaviour:
   sceneToLoad: Plat_Level_1
   isLocked: 0
   lockedDisplay: {fileID: 736910209}
+  LevelToCheck: 
 --- !u!114 &1281849092
 MonoBehaviour:
   m_ObjectHideFlags: 0
