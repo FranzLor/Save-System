@@ -79,6 +79,15 @@ public class NewBehaviourScript : MonoBehaviour
 
     void ClearSave()
     {
-        Debug.Log("Clearing Save...");
+        //error check ensure file exists
+        if (File.Exists(Application.persistentDataPath + "/Save.xml"))
+        {
+            Debug.Log("Deleting Save File");
+
+            File.Delete(Application.persistentDataPath + "/Save.xml");
+        } else
+        {
+            Debug.LogWarning("No Save File Found");
+        }
     }
 }
