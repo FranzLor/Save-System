@@ -12,6 +12,8 @@ public class NewBehaviourScript : MonoBehaviour
     //testing saving string
     public string testingString;
 
+    public List<float> testingList;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,20 +48,56 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Save()
     {
+        //STRING-------------------------
+        //Debug.Log("Saving...");
+        ////directory to save to
+        //string dataPath = Application.persistentDataPath;
+
+        ////create new XML serializer
+        //var serializer = new XmlSerializer(typeof(string));
+        //var stream = new FileStream(dataPath + "/Save.xml", FileMode.Create);
+        //serializer.Serialize(stream, testingString);
+
+        //stream.Close();
+        //--------------------------------
+
+
+        //LIST---------------------------
         Debug.Log("Saving...");
         //directory to save to
         string dataPath = Application.persistentDataPath;
 
         //create new XML serializer
-        var serializer = new XmlSerializer(typeof(string));
+        var serializer = new XmlSerializer(typeof(List<float>));
         var stream = new FileStream(dataPath + "/Save.xml", FileMode.Create);
-        serializer.Serialize(stream, testingString);
+        serializer.Serialize(stream, testingList);
 
         stream.Close();
+        //--------------------------------
     }
 
     void Load()
     {
+        //STRING-------------------------
+        //string dataPath = Application.persistentDataPath;
+
+        ////error check ensure file exists
+        //if (File.Exists(dataPath + "/Save.xml"))
+        //{
+        //    Debug.Log("Loading Data");
+
+        //    var serializer = new XmlSerializer(typeof(string));
+        //    var stream = new FileStream(dataPath + "/Save.xml", FileMode.Open);
+        //    testingString = serializer.Deserialize(stream) as string;
+        //    stream.Close();
+        //} else
+        //{
+        //    Debug.LogWarning("No Save File Found");
+        //}
+        //--------------------------------
+
+
+        //LIST---------------------------
         string dataPath = Application.persistentDataPath;
 
         //error check ensure file exists
@@ -67,14 +105,16 @@ public class NewBehaviourScript : MonoBehaviour
         {
             Debug.Log("Loading Data");
 
-            var serializer = new XmlSerializer(typeof(string));
+            var serializer = new XmlSerializer(typeof(List<float>));
             var stream = new FileStream(dataPath + "/Save.xml", FileMode.Open);
-            testingString = serializer.Deserialize(stream) as string;
+            testingList = serializer.Deserialize(stream) as List<float>;
             stream.Close();
-        } else
+        }
+        else
         {
             Debug.LogWarning("No Save File Found");
         }
+        //--------------------------------
     }
 
     void ClearSave()
