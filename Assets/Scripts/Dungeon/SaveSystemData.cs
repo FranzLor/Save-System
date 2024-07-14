@@ -7,7 +7,7 @@ public class SaveSystemData
 {
     public int strength, defence;
 
-    public int level, currentXP, requiredXP;
+    public int level, currentXP, xpToLevel;
 
-    public int currentHealth, maxHealth;
+    public int currentHealth, maxHP;
 }
