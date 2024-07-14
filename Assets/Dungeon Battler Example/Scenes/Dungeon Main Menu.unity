@@ -785,6 +785,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba619d7daa37b64f9822eb37d896bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeSave:
+    strength: 1
+    defence: 0
+    level: 1
+    currentXP: 0
+    requiredXP: 5
+    currentHealth: 10
+    maxHealth: 10
 --- !u!1 &1049846833
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveSystemData : MonoBehaviour
+[System.Serializable]
+public class SaveSystemData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int strength, defence;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int level, currentXP, requiredXP;
+
+    public int currentHealth, maxHealth;
 }
