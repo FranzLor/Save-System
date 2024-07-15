@@ -10,6 +10,11 @@ public class SaveSystem : MonoBehaviour
     public static SaveSystem instance;
     private void Awake()
     {
+        SetupInstance();
+    }
+
+    public void SetupInstance()
+    {
         if (instance == null)
         {
             instance = this;
@@ -18,7 +23,8 @@ public class SaveSystem : MonoBehaviour
             //loads save data
             //Load();
 
-        } else
+        }
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
