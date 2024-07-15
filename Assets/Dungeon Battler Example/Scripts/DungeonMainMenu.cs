@@ -70,5 +70,8 @@ public class DungeonMainMenu : MonoBehaviour
     {
         StartFadeToBlack();
         yield return new WaitForSeconds(1f);
+
+        //load save level
+        SceneManager.LoadScene(SaveSystem.instance.activeSave.currentLevel);
     }
 }

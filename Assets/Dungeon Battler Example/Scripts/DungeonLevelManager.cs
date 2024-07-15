@@ -62,7 +62,7 @@ public class DungeonLevelManager : MonoBehaviour
 
         SaveSystem.instance.activeSave.currentHealth = DungeonPlayer.instance.currentHealth;
 
-
+        SaveSystem.instance.activeSave.currentLevel = nextLevel;
 
     }
 }
