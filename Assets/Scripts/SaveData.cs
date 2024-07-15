@@ -10,7 +10,7 @@ public class SaveData
     public int intNum;
     public float floatNum;
 
-    public List<Vector3> location;
+    public List<SaveVector3> location;
 
     public enum InfoType { whatever, info, needs, to, be,  here };
     public InfoType typeOfInfo;
@@ -25,4 +25,11 @@ public class SubSave
 {
     public string text;
     public bool isTrue;
+}
+
+
+[System.Serializable]
+public class SaveVector3
+{
+    public float x, y, z;
 }
