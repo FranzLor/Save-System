@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 51131956}
   - component: {fileID: 51131955}
   - component: {fileID: 51131954}
+  - component: {fileID: 51131958}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -271,6 +272,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51131952}
   m_CullTransparentMesh: 1
+--- !u!114 &51131958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51131952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410fbc711ba45604b80a45dc40bca355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &136171750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1523,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156027284954340337, guid: a6f2aeacdd9e06049b18c9097a11b2c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320786697875139176, guid: a6f2aeacdd9e06049b18c9097a11b2c0, type: 3}
+      propertyPath: dontSave
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707391774019528220, guid: a6f2aeacdd9e06049b18c9097a11b2c0, type: 3}

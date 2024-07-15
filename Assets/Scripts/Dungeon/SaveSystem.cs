@@ -36,18 +36,31 @@ public class SaveSystem : MonoBehaviour
     //doesnt save for ending game
     public string sceneNotToSave;
 
+    //name save file
+    public string saveName;
+
+    //dont save for testing
+    public bool dontSave;
+
     public void Save()
     {
-        Debug.Log("Saving...");
-        //directory to save to
-        string dataPath = Application.persistentDataPath;
+#if UNITY_EDITOR
+        if (dontSave == false)
+        {
+#endif
+            Debug.Log("Saving...");
+            //directory to save to
+            string dataPath = Application.persistentDataPath;
 
-        //create new XML serializer
-        var serializer = new XmlSerializer(typeof(SaveSystemData));
-        var stream = new FileStream(dataPath + "/Dungeon.save", FileMode.Create);
-        serializer.Serialize(stream, activeSave);
+            //create new XML serializer
+            var serializer = new XmlSerializer(typeof(SaveSystemData));
+            var stream = new FileStream(dataPath + "/" + saveName + ".save", FileMode.Create);
+            serializer.Serialize(stream, activeSave);
 
-        stream.Close();
+            stream.Close();
+#if UNITY_EDITOR
+    }
+#endif
     }
 
     public void Load()
@@ -55,12 +68,12 @@ public class SaveSystem : MonoBehaviour
         string dataPath = Application.persistentDataPath;
 
         //error check ensure file exists
-        if (File.Exists(dataPath + "/Dungeon.save"))
+        if (File.Exists(dataPath + "/" + saveName + ".save"))
         {
             Debug.Log("Loading Data");
 
             var serializer = new XmlSerializer(typeof(SaveSystemData));
-            var stream = new FileStream(dataPath + "/Dungeon.save", FileMode.Open);
+            var stream = new FileStream(dataPath + "/" + saveName + ".save", FileMode.Open);
             activeSave = serializer.Deserialize(stream) as SaveSystemData;
             stream.Close();
         }
