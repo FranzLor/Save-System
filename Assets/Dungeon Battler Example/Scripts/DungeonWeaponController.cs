@@ -25,10 +25,14 @@ public class DungeonWeaponController : MonoBehaviour
 
     public void SetUp()
     {
-        if (activeWeaponInfo.damageAmount == 0)
-        {
-            NewWeapon(weaponType.Sword);
-        }
+        //previous code to set weapon to sword if no weapon is saved
+        //if (activeWeaponInfo.damageAmount == 0)
+        //{
+        //    NewWeapon(weaponType.Sword);
+        //}
+
+        //sets weapon to the one saved
+        NewWeapon(SaveSystem.instance.activeSave.currentWeapon);
     }
 
     // Update is called once per frame
@@ -86,6 +90,8 @@ public class DungeonWeaponController : MonoBehaviour
         }
 
         DungeonUIController.instance.UpdateUI();
+
+        SaveSystem.instance.activeSave.currentWeapon = newWeapon;
     }
 
     public void DoAttack()

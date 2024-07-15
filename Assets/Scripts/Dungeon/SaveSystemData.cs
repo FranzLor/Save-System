@@ -10,4 +10,7 @@ public class SaveSystemData
     public int level, currentXP, xpToLevel;
 
     public int currentHealth, maxHP;
+
+    public DungeonWeaponController.weaponType currentWeapon;
+    
 }
