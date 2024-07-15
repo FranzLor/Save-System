@@ -65,16 +65,16 @@ public class NewBehaviourScript : MonoBehaviour
 
 
         //LIST---------------------------
-        Debug.Log("Saving...");
-        //directory to save to
-        string dataPath = Application.persistentDataPath;
+        //Debug.Log("Saving...");
+        ////directory to save to
+        //string dataPath = Application.persistentDataPath;
 
-        //create new XML serializer
-        var serializer = new XmlSerializer(typeof(SaveData));
-        var stream = new FileStream(dataPath + "/Save.xml", FileMode.Create);
-        serializer.Serialize(stream, dataToSave);
+        ////create new XML serializer
+        //var serializer = new XmlSerializer(typeof(SaveData));
+        //var stream = new FileStream(dataPath + "/Save.xml", FileMode.Create);
+        //serializer.Serialize(stream, dataToSave);
 
-        stream.Close();
+        //stream.Close();
         //--------------------------------
     }
 
@@ -100,36 +100,36 @@ public class NewBehaviourScript : MonoBehaviour
 
 
         //LIST---------------------------
-        string dataPath = Application.persistentDataPath;
+        //string dataPath = Application.persistentDataPath;
 
-        //error check ensure file exists
-        if (File.Exists(dataPath + "/Save.xml"))
-        {
-            Debug.Log("Loading Data");
+        ////error check ensure file exists
+        //if (File.Exists(dataPath + "/Save.xml"))
+        //{
+        //    Debug.Log("Loading Data");
 
-            var serializer = new XmlSerializer(typeof(SaveData));
-            var stream = new FileStream(dataPath + "/Save.xml", FileMode.Open);
-            dataToSave = serializer.Deserialize(stream) as SaveData;
-            stream.Close();
-        }
-        else
-        {
-            Debug.LogWarning("No Save File Found");
-        }
+        //    var serializer = new XmlSerializer(typeof(SaveData));
+        //    var stream = new FileStream(dataPath + "/Save.xml", FileMode.Open);
+        //    dataToSave = serializer.Deserialize(stream) as SaveData;
+        //    stream.Close();
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("No Save File Found");
+        //}
         //--------------------------------
     }
 
     void ClearSave()
     {
-        //error check ensure file exists
-        if (File.Exists(Application.persistentDataPath + "/Save.xml"))
-        {
-            Debug.Log("Deleting Save File");
+        ////error check ensure file exists
+        //if (File.Exists(Application.persistentDataPath + "/Save.xml"))
+        //{
+        //    Debug.Log("Deleting Save File");
 
-            File.Delete(Application.persistentDataPath + "/Save.xml");
-        } else
-        {
-            Debug.LogWarning("No Save File Found");
-        }
+        //    File.Delete(Application.persistentDataPath + "/Save.xml");
+        //} else
+        //{
+        //    Debug.LogWarning("No Save File Found");
+        //}
     }
 }

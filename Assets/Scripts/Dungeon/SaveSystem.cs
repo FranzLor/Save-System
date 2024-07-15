@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Xml.Serialization;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -12,6 +14,10 @@ public class SaveSystem : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            //loads save data
+            Load();
+
         } else
         {
             Destroy(gameObject);
@@ -21,15 +27,37 @@ public class SaveSystem : MonoBehaviour
     //save data ref
     public SaveSystemData activeSave;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Save()
     {
-        
+        Debug.Log("Saving...");
+        //directory to save to
+        string dataPath = Application.persistentDataPath;
+
+        //create new XML serializer
+        var serializer = new XmlSerializer(typeof(SaveSystemData));
+        var stream = new FileStream(dataPath + "/Dungeon.save", FileMode.Create);
+        serializer.Serialize(stream, activeSave);
+
+        stream.Close();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Load()
     {
-        
+        string dataPath = Application.persistentDataPath;
+
+        //error check ensure file exists
+        if (File.Exists(dataPath + "/Dungeon.save"))
+        {
+            Debug.Log("Loading Data");
+
+            var serializer = new XmlSerializer(typeof(SaveSystemData));
+            var stream = new FileStream(dataPath + "/Dungeon.save", FileMode.Open);
+            activeSave = serializer.Deserialize(stream) as SaveSystemData;
+            stream.Close();
+        }
+        else
+        {
+            Debug.LogWarning("No Save File Found");
+        }
     }
 }

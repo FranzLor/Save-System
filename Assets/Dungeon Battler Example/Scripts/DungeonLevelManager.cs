@@ -31,6 +31,9 @@ public class DungeonLevelManager : MonoBehaviour
         //call save system update
         UpdateSaveSystem();
 
+        //save system save
+        SaveSystem.instance.Save();
+
         yield return new WaitForSeconds(.5f);
 
         if (nextLevel != "")
