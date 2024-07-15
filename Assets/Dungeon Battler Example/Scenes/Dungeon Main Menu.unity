@@ -790,9 +790,12 @@ MonoBehaviour:
     defence: 0
     level: 1
     currentXP: 0
-    requiredXP: 5
+    xpToLevel: 0
     currentHealth: 10
-    maxHealth: 10
+    maxHP: 0
+    currentWeapon: 0
+    currentLevel: 
+  sceneNotToSave: Dungeon Main Menu
 --- !u!1 &1049846833
 GameObject:
   m_ObjectHideFlags: 0

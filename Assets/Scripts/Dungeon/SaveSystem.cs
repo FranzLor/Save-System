@@ -27,6 +27,9 @@ public class SaveSystem : MonoBehaviour
     //save data ref
     public SaveSystemData activeSave;
 
+    //doesnt save for ending game
+    public string sceneNotToSave;
+
     public void Save()
     {
         Debug.Log("Saving...");

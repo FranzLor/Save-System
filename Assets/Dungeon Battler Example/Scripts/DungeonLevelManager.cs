@@ -28,11 +28,16 @@ public class DungeonLevelManager : MonoBehaviour
     {
         DungeonUIController.instance.StartFadeToBlack();
 
-        //call save system update
-        UpdateSaveSystem();
+        //only saves if the next level is not the scene not to save
+        if (nextLevel != SaveSystem.instance.sceneNotToSave)
+        {
+            //call save system update
+            UpdateSaveSystem();
 
-        //save system save
-        SaveSystem.instance.Save();
+            //save system save
+            SaveSystem.instance.Save();
+        }
+
 
         yield return new WaitForSeconds(.5f);
 
