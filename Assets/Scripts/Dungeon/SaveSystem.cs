@@ -16,7 +16,7 @@ public class SaveSystem : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             //loads save data
-            Load();
+            //Load();
 
         } else
         {
@@ -62,5 +62,11 @@ public class SaveSystem : MonoBehaviour
         {
             Debug.LogWarning("No Save File Found");
         }
+    }
+
+    public void DestroySaveSystem()
+    {
+        instance = null;
+        Destroy(gameObject);
     }
 }
